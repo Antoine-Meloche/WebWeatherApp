@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A simple web weather app built with vanilla javascript, html and css based uppon the weatherapi.com api to retrieve the weather information for specific locations."
+    />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./main.js"></script>
+  </head>
+  <body>
+    <style></style>
+    <nav class="minimized">
+      <button class="menu-btn">
+        <div id="top-menu"></div>
+        <div id="middle-menu"></div>
+        <div id="bottom-menu"></div>
+      </button>
+      <img src="./imgs/triangle-white.svg" alt="nav-triangle" class="nav-direction">
+      <ul>
+        <li>
+          <button class="settings-btn">
+            <img src="./imgs/settings.svg" alt="Settings" title="Settings" />
+          </button>
+        </li>
+        <li>
+          <button class="theme-changer" title="Toggle Theme">
+            <img src="./imgs/moon.svg" alt="Theme" class="stroke" />
+            <img src="./imgs/moon-full.svg" alt="Theme" class="full" />
+          </button>
+        </li>
+        <div class="options hiddenBoxH">
+          <div class="wind-units">
+            <div class="wind-unit">
+              <p>kph</p>
+              <div class="unit-indicator active wind-unit-0">
+                <div></div>
+                <input class="wind-unit-btn-0" type="radio" />
+              </div>
+            </div>
+            <div class="wind-unit">
+              <p>mph</p>
+              <div class="unit-indicator wind-unit-1">
+                <div></div>
+                <input class="wind-unit-btn-1" type="radio" />
+              </div>
+            </div>
+            <div class="wind-unit">
+              <p>kt</p>
+              <div class="unit-indicator wind-unit-2">
+                <div></div>
+                <input class="wind-unit-btn-2" type="radio" />
+              </div>
+            </div>
+          </div>
+          <div class="temperature-units">
+            <div class="temperature-unit">
+              <p>°C</p>
+              <div class="unit-indicator temperature-unit-0 active">
+                <div></div>
+                <input class="temperature-unit-btn-0" type="radio" />
+              </div>
+            </div>
+            <div class="temperature-unit">
+              <p>°F</p>
+              <div class="unit-indicator temperature-unit-1">
+                <div></div>
+                <input class="temperature-unit-btn-1" type="radio" />
+              </div>
+            </div>
+          </div>
+          <div class="precip-units">
+            <div class="precip-unit">
+              <p>mm</p>
+              <div class="unit-indicator precip-unit-0 active">
+                <div></div>
+                <input class="precip-unit-btn-0" type="radio" />
+              </div>
+            </div>
+            <div class="precip-unit">
+              <p>in</p>
+              <div class="unit-indicator precip-unit-1">
+                <div></div>
+                <input class="precip-unit-btn-1" type="radio" />
+              </div>
+            </div>
+          </div>
+          <div class="distance-units">
+            <div class="distance-unit">
+              <p>km</p>
+              <div class="unit-indicator distance-unit-0 active">
+                <div></div>
+                <input type="radio" class="distance-unit-btn-0" />
+              </div>
+            </div>
+            <div class="distance-unit">
+              <p>mi</p>
+              <div class="unit-indicator distance-unit-1">
+                <div></div>
+                <input type="radio" class="distance-unit-btn-1" />
+              </div>
+            </div>
+          </div>
+          <div class="icons-or-text">
+            <div class="icons">
+              <p>icons</p>
+              <div class="unit-indicator icons-or-text-0 active">
+                <div></div>
+                <input type="radio" class="icons-or-text-btn-0" />
+              </div>
+            </div>
+            <div class="text">
+              <p>text</p>
+              <div class="unit-indicator icons-or-text-1">
+                <div></div>
+                <input type="radio" class="icons-or-text-btn-1" />
+              </div>
+            </div>
+          </div>
+          <div class="reload">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-refresh-cw"
+              alt="refresh"
+            >
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <polyline points="1 20 1 14 7 14"></polyline>
+              <path
+                d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <button class="about-btn" title="About">
+          <img src="./imgs/help-circle.svg" alt="About" />
+        </button>
+      </ul>
+    </nav>
+
+    <div class="mapBox hiddenBox">
+      <button class="closeMap">
+        <img src="./imgs/x.svg" alt="close" />
+      </button>
+    </div>
+
+    <main>
+      <div class="searchInput">
+        <button class="map" title="Map">
+          <img src="./imgs/map.svg" alt="Map" />
+        </button>
+        <input
+          class="locationInput"
+          type="text"
+          placeholder="Search location"
+        />
+        <button class="auto-location" title="Auto Location">
+          <img src="./imgs/map-pin.svg" alt="Auto location" />
+        </button>
+      </div>
+
+      <div class="weather-forecast"></div>
+    </main>
+  </body>
+</html>
