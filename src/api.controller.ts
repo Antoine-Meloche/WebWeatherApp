@@ -1,5 +1,4 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import apiKey from './config.json';
 const axios = require('axios');
 
 @Controller('api')
@@ -9,7 +8,7 @@ export class ApiController {
     const { data: response } = await axios.get(
       `https://api.weatherapi.com/v1/${
         apiType === 'weather' ? 'forecast' : 'search'
-      }.json?key=${apiKey.apiKey}&q=${q}${
+      }.json?key=${process.env.API_KEY}&q=${q}${
         apiType === 'weather' ? '&days=10&aqi=no&alerts=yes' : ''
       }`,
     );
