@@ -1,6 +1,5 @@
 import { HttpException, HttpStatus, Injectable, Query } from '@nestjs/common';
 const https = require('https');
-import apiKey from './config.json';
 const request = require('request');
 
 @Injectable()
@@ -8,7 +7,7 @@ export class ApiService {
   public apicall(apiType, q) {
     if (apiType === 'weather') {
       request(
-        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey.apiKey}&q=${q}&days=10&aqi=no&alerts=yes`,
+        `https://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=${q}&days=10&aqi=no&alerts=yes`,
         (err, res, body) => {
           if (err) {
             throw new HttpException('Bad Request', HttpStatus.BAD_REQUEST);
