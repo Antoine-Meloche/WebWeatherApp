@@ -17,7 +17,7 @@ export class ApiService {
       );
     } else if (apiType === 'search') {
       request(
-        `https://api.weatherapi.com/v1/search.json?key=${apiKey.apiKey}&q=${q}`,
+        `https://api.weatherapi.com/v1/search.json?key=${process.env.API_KEY}&q=${q}`,
         (err, res, body) => {
           if (err) {
             throw new HttpException('Bad Request', HttpStatus.BAD_REQUEST);
